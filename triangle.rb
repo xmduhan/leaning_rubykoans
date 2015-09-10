@@ -15,6 +15,22 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  l = [a,b,c]
+  3.times do 
+    if l[0] + l[1] <= l[2]
+      raise TriangleError
+    end
+    l.unshift(l.pop)
+  end
+
+  if a == b and b == c
+    return :equilateral
+  end
+  if a==b or b == c or a == c
+    return :isosceles
+  else
+    return :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
